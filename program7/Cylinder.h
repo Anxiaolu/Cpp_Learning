@@ -1,10 +1,13 @@
-#include<iostream>
+#ifndef CYLINDER_H
+#define CYLINDER_H
+#include <iostream>
+#include "Point.h"
 #include "Circle.h"
 using namespace std;
 class Cylinder:public Circle
 {
 public:
-	Cylinder(float x,float y,float r,float h):Circle(x,y,r){radius=r;}
+	Cylinder(float x,float y,float r,float h):Circle(x,y,r){height=h;}
 	~Cylinder(){};
 	void setHeight(float);
 	float getHeight();
@@ -15,7 +18,7 @@ private:
 };
 
 float Cylinder::area(){
-	return 2 * Circle::area() + 2 * 3.14 * radius * height;
+	return 2 * Circle::area() + 2 * 3.14 * getRadius() * height;
 }
 
 float Cylinder::getHeight(){
@@ -27,6 +30,8 @@ void Cylinder::setHeight(float h){
 }
 
 ostream &operator <<(ostream &output,Cylinder &c){
-	output<<"Center=["<<c.x_coor<<","<<c.y_coor<<"]"<<" r="<<c.radius<<
+	output<<"Center=["<<c.getX()<<","<<c.getX()<<"]"<<" r="<<c.getRadius()<<
 	" area="<<c.area()<<" height="<<c.height<<endl;
 }
+
+#endif

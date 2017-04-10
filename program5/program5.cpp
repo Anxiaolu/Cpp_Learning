@@ -1,10 +1,6 @@
 #include<iostream>
 using namespace std;
 
-class Matrix;  
-Matrix operator+(const Matrix &a, const Matrix &b); 
-Matrix operator*(const Matrix &a, const Matrix &b);
-
 class Matrix {   
 	friend Matrix operator+(const Matrix &a, const Matrix &b); 
 	friend Matrix operator*(const Matrix &a, const Matrix &b); 
@@ -18,7 +14,7 @@ public :
 
 	int getLine() const;  
 	int getCol() const;  
-	void print() const       d
+	void print() const;     
 	Matrix& operator= (const Matrix &m);  
 	Matrix operator~ () const;   
 private :  
